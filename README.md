@@ -1,2 +1,2 @@
-# FaPicClient
-Client for favorit picture management
+# Fa-Pic-Client
+Client for managing favorite pictures
