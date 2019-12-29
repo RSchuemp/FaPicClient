@@ -1,0 +1,38 @@
+@model FaPicClient.Models.HomeModel
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form enctype="multipart/form-data" method="post">
+        <dl>
+            <dt>
+                <label asp-for="File"></label>
+            </dt>
+            <dd>
+                <input asp-for="File" type="file">
+            </dd>
+        </dl>
+        <input asp-controller="Home" asp-action="Upload" class="btn" type="submit" value="Upload" accept="image/jpeg">
+    </form>
+
+</div>
+<ul>
+    @foreach (var image in Model.Images)
+    {
+    <li>
+        @{
+            var base64 = Convert.ToBase64String(image);
+            var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+        }
+
+        <img src="@imgSrc" style="max-width:600px;width:100%"/>
+        
+
+    </li>
+    }
+</ul>
+
+
